@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StopWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,77 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="Miy-wG-WvU">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="HG5-9L-T3f"/>
+                                </constraints>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="Optima-Regular" family="Optima" pointSize="27"/>
+                                    <color key="textColor" red="0.82800614833831787" green="0.95489078760147095" blue="0.86835592985153198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="textShadowColor" white="0.39070945957611347" alpha="1" colorSpace="calibratedWhite"/>
+                                    <offsetWrapper key="textShadowOffset" horizontal="2" vertical="1"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="StopWatch" id="N3Z-LG-qjB">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="ubi-sP-OjM">
+                                            <connections>
+                                                <action selector="startButton:" destination="BYZ-38-t0r" id="0HS-jE-dmn"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="iPF-yR-y9C">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6BR-pW-V6L"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Item" systemItem="stop" id="Vsi-vB-mYA">
+                                        <connections>
+                                            <action selector="resetButton:" destination="BYZ-38-t0r" id="yyH-x9-Cqo"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6H1-dR-dM5"/>
+                                    <barButtonItem systemItem="pause" id="kJH-Ox-hNR">
+                                        <connections>
+                                            <action selector="pauseButton:" destination="BYZ-38-t0r" id="bZ1-UC-PAT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hz7-gC-DVv">
+                                <rect key="frame" x="221" y="247" width="158" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="105" id="GKT-y3-KEd"/>
+                                    <constraint firstAttribute="width" constant="158" id="ppe-Z1-zRT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="101"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.093539334833621979" green="0.5979764461517334" blue="0.55026620626449585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iPF-yR-y9C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="3fj-kk-BTs"/>
+                            <constraint firstItem="Miy-wG-WvU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6UT-MV-DHx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Miy-wG-WvU" secondAttribute="trailing" constant="-20" id="GlZ-xJ-87s"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iPF-yR-y9C" secondAttribute="trailing" constant="-20" id="gDQ-AW-IiY"/>
+                            <constraint firstItem="Miy-wG-WvU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="oJF-ef-6qO"/>
+                            <constraint firstItem="Hz7-gC-DVv" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tKq-ZS-PC3"/>
+                            <constraint firstItem="Hz7-gC-DVv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xdH-fx-QcM"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iPF-yR-y9C" secondAttribute="bottom" id="zel-pW-eGe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="Hz7-gC-DVv" id="xnb-he-NiZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="440" y="364"/>
         </scene>
     </scenes>
 </document>
